@@ -20,3 +20,7 @@ body {
 .zone-colored {
     background-color: #c90a0a;
 }
+
+#option-modal {
+    display: none;
+}

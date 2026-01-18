@@ -11,11 +11,3 @@ const boxList = document.querySelectorAll(".zone");
 boxList.forEach((box) => {
     box.addEventListener("mouseenter", () => box.classList.add("zone-colored"));
 })
-
-// Pop-up box for user to manage pixelage of the grid
-const canvasOptions = document.querySelector("#canvas-option");
-canvasOptions.addEventListener("click", popupQuery);
-
-function popupQuery() {
-    alert("Change the resolution?");
-}
