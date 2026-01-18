@@ -39,4 +39,5 @@ body {
 .option-modal-window {
     background-color: white;
     padding: 25px;
+    border-radius: 5px;
 }
