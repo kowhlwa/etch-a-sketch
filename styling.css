@@ -21,7 +21,11 @@ body {
     background-color: #c90a0a;
 }
 
-#option-modal {
+.hidden {
+    display: flex;
+}
+
+.option-modal {
     display: none;
     z-index: 1;
     position: fixed;

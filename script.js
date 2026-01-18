@@ -11,3 +11,7 @@ const boxList = document.querySelectorAll(".zone");
 boxList.forEach((box) => {
     box.addEventListener("mouseenter", () => box.classList.add("zone-colored"));
 })
+
+// Default hidden setting for modal window
+const modal = document.querySelector(".option-modal");
+modal.classList.add("hidden");
