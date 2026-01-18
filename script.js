@@ -7,10 +7,6 @@ boxList.forEach((box) => {
     box.addEventListener("mouseenter", () => box.classList.add("zone-colored"));
 })
 
-// Default hidden setting for modal window
-const modal = document.querySelector(".option-modal");
-modal.classList.toggle("hidden");
-
 // Event Listener for modal window button
 const modalButton = document.querySelector("#canvas-option");
 modalButton.addEventListener("click", () => modal.classList.toggle("hidden"));
