@@ -6,11 +6,13 @@ body {
     border: 2mm solid #bdbdbd;
     display: flex;
     flex-wrap: wrap;
+    overflow: scroll;
 }
 
 .zone {
     flex: 1 1 6.25%;
-    border: 1mm dashed white;
+    border: 0.5mm solid #c7c7c7;
     padding: 25px 25px;
     box-sizing: border-box;
+    background-color: white;
 }
