@@ -27,7 +27,7 @@ confirmModal.addEventListener("click", () => {
     modal.classList.toggle("hidden");
 });
 
-// Function generates new canvas based on (N = squares), (NxN) grid of squares.
+// Function generates new canvas based on (N = squares), (NxN) grid of squares
 function generateCanvas(squares) {
     const canvas = document.querySelector(".container");
 
@@ -36,18 +36,29 @@ function generateCanvas(squares) {
         canvas.replaceChildren();
     }
 
-    // Generate N x N grid of blocks within the canvas
+    // Determines how many squares (N) to create within the canvas
     let numberOfSquares;
     if (squares <= 100) {
         numberOfSquares = squares**2;
     } else {
         alert("You can only create a canvas with 0 or 100 squares height by width.");
-        numberOfSquares = 16; // Fallback behavior
+        numberOfSquares = 256; // Fallback behavior is 16x16 canvas
     }
+
+    /** 
+     * Determines the flex-basis for each square
+     * The formula for flex basis of each square is how much width each one should take up according
+     * to the percentage of the screen.
+     * 
+    */
+    let newFlexbasis = 100 / squares;
+
+    // Generates N x N grid of blocks within the canvas
     for (let idx = 0; idx < numberOfSquares; idx++) {
             const block = document.createElement("div");
             block.classList.add("zone");
-            block.addEventListener("mouseenter", () => block.classList.add("zone-colored"));
+            block.addEventListener("mouseenter", () => block.classList.add("zone-colored")); // Interactivity
+            block.style.flexBasis = `${newFlexbasis}%`;
             canvas.appendChild(block);
         }
 }

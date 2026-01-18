@@ -3,18 +3,19 @@ body {
 }
 
 .container {
-    border: 2mm solid #bdbdbd;
+    border: 1mm solid #bdbdbd;
     display: flex;
     flex-wrap: wrap;
     overflow: scroll;
 }
 
 .zone {
-    flex: 1 1 6.25%;
+    flex-grow: 1;
+    flex-shrink: 1;
     border: 0.5mm solid #c7c7c7;
-    padding: 25px 25px;
     box-sizing: border-box;
     background-color: white;
+    aspect-ratio: 1 / 1;
 }
 
 .zone-colored {
