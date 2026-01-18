@@ -16,3 +16,7 @@ body {
     box-sizing: border-box;
     background-color: white;
 }
+
+.zone-colored {
+    background-color: #c90a0a;
+}
