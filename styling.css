@@ -1,0 +1,16 @@
+body {
+    background-color: #000000;
+}
+
+.container {
+    border: 2mm solid #bdbdbd;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.zone {
+    flex: 1 1 6.25%;
+    border: 1mm dashed white;
+    padding: 25px 25px;
+    box-sizing: border-box;
+}
