@@ -37,12 +37,17 @@ function generateCanvas(squares) {
     }
 
     // Generate N x N grid of blocks within the canvas
+    let numberOfSquares;
     if (squares <= 100) {
-        for (let idx = 0; idx < squares**2; idx++) {
+        numberOfSquares = squares**2;
+    } else {
+        alert("You can only create a canvas with 0 or 100 squares height by width.");
+        numberOfSquares = 16; // Fallback behavior
+    }
+    for (let idx = 0; idx < numberOfSquares; idx++) {
             const block = document.createElement("div");
             block.classList.add("zone");
             block.addEventListener("mouseenter", () => block.classList.add("zone-colored"));
             canvas.appendChild(block);
         }
-    }
 }
