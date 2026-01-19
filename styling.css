@@ -20,7 +20,7 @@ body {
 }
 
 .zone-colored {
-    background-color: #c90a0a;
+    background-color: rgb(255, 0, 0);
 }
 
 .option-modal.hidden {

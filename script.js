@@ -66,6 +66,39 @@ confirmModal.addEventListener("click", () => {
     modal.classList.toggle("hidden");
 });
 
+// Event Listener for progressive darkening effect button
+const progDarkButton = document.querySelector("#prog-dark");
+progDarkButton.textContent = "Progressive Darkening: Off";
+progDarkButton.addEventListener("click", toggleProgressiveDarkening);
+
+let opacity = 1.0;
+const deltaOpacity = 0.1;
+
+function toggleProgressiveDarkening() {
+    const toggleButton = document.querySelector("#prog-dark");
+    const newState = (toggleButton.textContent === "Progressive Darkening: Off") ? 1 : 0;
+    if (newState === 1) {
+        const boxList = document.querySelectorAll(".zone:not(.zone-colored)");
+        boxList.forEach((box) => {
+            box.addEventListener("mouseenter", setDarkerColor, {once : true});
+        });
+        toggleButton.textContent = "Progressive Darkening: On";
+    } else {
+        const boxList = document.querySelectorAll(".zone");
+        boxList.forEach((box) => {
+            box.removeEventListener("mouseenter", setDarkerColor);
+        })
+        toggleButton.textContent = "Progressive Darkening: Off";
+        opacity = 1.0;
+    }
+}
+
+function setDarkerColor(e) {
+    let oldOpacity = opacity;
+    opacity = Math.max(opacity - deltaOpacity, 0.0);
+    e.target.style.backgroundColor = `rgba(255, 0, 0, ${oldOpacity})`;
+}
+
 // Function generates new canvas based on (N = squares), (NxN) grid of squares
 function generateCanvas(squares) {
     const canvas = document.querySelector(".container");
