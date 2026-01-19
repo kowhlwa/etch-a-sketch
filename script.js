@@ -11,6 +11,39 @@ boxList.forEach((box) => {
 const modalButton = document.querySelector("#canvas-option");
 modalButton.addEventListener("click", () => modal.classList.toggle("hidden"));
 
+const randColorButton = document.querySelector("#color-randomizer");
+randColorButton.textContent = "Random coloring: Off";
+randColorButton.addEventListener("click", toggleRandomColoring);
+
+function toggleRandomColoring() {
+    const randColorButton = document.querySelector("#color-randomizer");
+    const newState = (randColorButton.textContent === "Random coloring: Off") ? 1 : 0; // 1 means turn on, 0 means turn off.
+    if (newState === 1) { // If toggle on, enable random coloring for the rest of the uncolored boxes.
+        const boxList = document.querySelectorAll(".zone:not(.zone-colored)");
+        boxList.forEach((box) => {
+            box.addEventListener("mouseenter", setRandomBackgroundColor, {once : true});
+        });
+        randColorButton.textContent = "Random coloring: On";
+    } else { // If toggle off, disable random coloring.
+        const boxList = document.querySelectorAll(".zone");
+        boxList.forEach((box) => {
+            box.removeEventListener("mouseenter", setRandomBackgroundColor);
+        })
+        randColorButton.textContent = "Random coloring: Off";
+    }
+}
+
+function setRandomBackgroundColor(e) {
+    e.target.style.backgroundColor = getRandomRGB();
+}
+
+function getRandomRGB() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
 // Handle cancel
 const cancelModal = document.querySelector(".option-modal-cancel");
 cancelModal.addEventListener("click", () => modal.classList.toggle("hidden"));
