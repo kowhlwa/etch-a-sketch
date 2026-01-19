@@ -9,6 +9,7 @@ boxList.forEach((box) => {
 
 // Event Listener for modal window button
 const modalButton = document.querySelector("#canvas-option");
+const modal = document.querySelector(".option-modal");
 modalButton.addEventListener("click", () => modal.classList.toggle("hidden"));
 
 // Event Listener for color randomizer button
