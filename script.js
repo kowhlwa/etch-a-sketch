@@ -11,10 +11,18 @@ boxList.forEach((box) => {
 const modalButton = document.querySelector("#canvas-option");
 modalButton.addEventListener("click", () => modal.classList.toggle("hidden"));
 
+// Event Listener for color randomizer button
 const randColorButton = document.querySelector("#color-randomizer");
 randColorButton.textContent = "Random coloring: Off";
 randColorButton.addEventListener("click", toggleRandomColoring);
 
+/** 
+ * Function does the following:
+ *    1. Checks if the button is On or Off and splits logic from there.
+ *    2. If On, All uncolored boxes in the canvas get an event listener that sets background color randomly once.
+ *    3. If Off, All boxes are stripped of that same event listener.
+ * 
+*/
 function toggleRandomColoring() {
     const randColorButton = document.querySelector("#color-randomizer");
     const newState = (randColorButton.textContent === "Random coloring: Off") ? 1 : 0; // 1 means turn on, 0 means turn off.
@@ -33,6 +41,7 @@ function toggleRandomColoring() {
     }
 }
 
+// I declared this because toggling with anonymous arrow functions (in above function) is impossible.
 function setRandomBackgroundColor(e) {
     e.target.style.backgroundColor = getRandomRGB();
 }
